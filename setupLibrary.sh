@@ -116,7 +116,7 @@ function setTimezone() {
 function configureNTP() {
     ubuntu_version="$(lsb_release -sr)"
 
-    if [[ $ubuntu_version == '20.04' ]]; then
+    if [[ $ubuntu_version == '20.10' ]]; then
         sudo systemctl restart systemd-timesyncd
     else
         sudo apt-get update
