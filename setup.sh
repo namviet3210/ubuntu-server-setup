@@ -18,23 +18,23 @@ includeDependencies
 output_file="output.log"
 
 function main() {
-    read -rp "Enter the username of the new user account:" username
+    #read -rp "Enter the username of the new user account:" username
 
-    promptForPassword
+    #promptForPassword
 
     # Run setup functions
-    trap cleanup EXIT SIGHUP SIGINT SIGTERM
+    #trap cleanup EXIT SIGHUP SIGINT SIGTERM
 
-    addUserAccount "${username}" "${password}"
+    #addUserAccount "${username}" "${password}"
 
-    read -rp $'Paste in the public SSH key for the new user:\n' sshKey
-    echo 'Running setup script...'
+    #read -rp $'Paste in the public SSH key for the new user:\n' sshKey
+    #echo 'Running setup script...'
     logTimestamp "${output_file}"
 
     exec 3>&1 >>"${output_file}" 2>&1
-    disableSudoPassword "${username}"
-    addSSHKey "${username}" "${sshKey}"
-    changeSSHConfig
+    #disableSudoPassword "${username}"
+    #addSSHKey "${username}" "${sshKey}"
+    #changeSSHConfig
     setupUfw
 
     if ! hasSwap; then
